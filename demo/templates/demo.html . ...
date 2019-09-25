@@ -1,0 +1,37 @@
+ {% extends "layout.html" %}
+
+  {% block body %}
+  <p>
+    Hei maailma!
+  </p>
+  <p>
+    <!-- etsitn muuttujaa nimelt nimi ja asetetaan sen arvo thn -->
+    {{ nimi }}
+  </p>
+
+  <ul>
+    <!-- Yritetn ky lista-nimist tietorakennetta lpi.
+	 Jokaiselle tietorakenteen alkiolle luodaan li-elementti, 
+	 jonka sislle asetetaan alkion arvo. -->
+    {% for arvo in lista %}
+    <li>{{ arvo }}</li>
+    {% endfor %}
+  </ul>
+
+  <table>
+    <tr>
+      <th>Nimi</th>
+    </tr>
+    <!-- Yritetn kyd tietorakenne nimelta esineet lpi. 
+	 Jokaiselle esineelle luodaan oma rivi taulukkoon. 
+	 Jokaista taulukon solua luodessa oletetaan, ett 
+	 esine on olio, ja etta alkiolla on muuttuja name. 
+	 Muuttujan arvo asetetaan solun arvoksi. -->
+    {% for esine in esineet %}
+    <tr>
+      <td>{{ esine.name }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+
+  {% endblock %}
